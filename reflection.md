@@ -6,7 +6,9 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 - What did the game look like the first time you ran it?
 - List at least two concrete bugs you noticed at the start  
-  (for example: "the secret number kept changing" or "the hints were backwards").
+  1. "New Game" button didn't work.
+  2. Hard was improperly coded to use 50 instead of 500.
+  3. Even when 100 was displayed as max boundary, the message displayed was still to guess higher
 
 ---
 
