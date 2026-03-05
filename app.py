@@ -44,7 +44,8 @@ def check_guess(guess, secret):
             return "Win", "🎉 Correct!"
         if g > secret:
             return "Too High", "📈 Go HIGHER!"
-        return "Too Low", "📉 Go LOWER!"
+        else:
+            return "Too Low", "📉 Go LOWER!"
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
@@ -107,7 +108,7 @@ if "history" not in st.session_state:
 st.subheader("Make a guess")
 
 st.info(
-    f"Guess a number between 1 and 100. "
+    f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
 )
 
