@@ -154,43 +154,44 @@ if submit:
 
     ok, guess_int, err = parse_guess(raw_guess)
 
+    
     if not ok:
         st.session_state.history.append(raw_guess)
         st.error(err)
     else:
         st.session_state.history.append(guess_int)
 
-        if st.session_state.attempts % 2 == 0:
-            secret = st.session_state.secret
+        # Validate guess is in range
+        if guess_int < low or guess_int > high:
+            st.error(f"Your guess must be between {low} and {high}!")
+            st.session_state.attempts -= 1  # Don't count invalid guesses
         else:
-            secret = st.session_state.secret
+            outcome, message = check_guess(guess_int, st.session_state.secret)
 
-        outcome, message = check_guess(guess_int, secret)
+            if show_hint:
+                st.warning(message)
 
-        if show_hint:
-            st.warning(message)
-
-        st.session_state.score = update_score(
-            current_score=st.session_state.score,
-            outcome=outcome,
-            attempt_number=st.session_state.attempts,
-        )
-
-        if outcome == "Win":
-            st.balloons()
-            st.session_state.status = "won"
-            st.success(
-                f"You won! The secret was {st.session_state.secret}. "
-                f"Final score: {st.session_state.score}"
+            st.session_state.score = update_score(
+                current_score=st.session_state.score,
+                outcome=outcome,
+                attempt_number=st.session_state.attempts,
             )
-        else:
-            if st.session_state.attempts >= attempt_limit:
-                st.session_state.status = "lost"
-                st.error(
-                    f"Out of attempts! "
-                    f"The secret was {st.session_state.secret}. "
-                    f"Score: {st.session_state.score}"
+
+            if outcome == "Win":
+                st.balloons()
+                st.session_state.status = "won"
+                st.success(
+                    f"You won! The secret was {st.session_state.secret}. "
+                    f"Final score: {st.session_state.score}"
                 )
+            else:
+                if st.session_state.attempts >= attempt_limit:
+                    st.session_state.status = "lost"
+                    st.error(
+                        f"Out of attempts! "
+                        f"The secret was {st.session_state.secret}. "
+                        f"Score: {st.session_state.score}"
+                    )       
 
 st.divider()
 st.caption("Built by an AI that claims this code is production-ready.")
