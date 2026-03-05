@@ -7,7 +7,7 @@ def get_range_for_difficulty(difficulty: str):
     if difficulty == "Normal":
         return 1, 100
     if difficulty == "Hard":
-        return 1, 50
+        return 1, 500
     return 1, 100
 
 
@@ -160,7 +160,7 @@ if submit:
         st.session_state.history.append(guess_int)
 
         if st.session_state.attempts % 2 == 0:
-            secret = str(st.session_state.secret)
+            secret = st.session_state.secret
         else:
             secret = st.session_state.secret
 
