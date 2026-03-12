@@ -156,13 +156,13 @@ if submit:
         st.session_state.history.append(raw_guess)
         st.error(err)
     else:
-        
-
         # Validate guess is in range
         if guess_int < low or guess_int > high:
+            st.session_state.history.append(guess_int)
             st.error(f"Your guess must be between {low} and {high}!")
             st.session_state.attempts -= 1  # Don't count invalid guesses
         else:
+            st.session_state.history.append(guess_int)
             outcome, message = check_guess(guess_int, st.session_state.secret)
 
             if show_hint:
