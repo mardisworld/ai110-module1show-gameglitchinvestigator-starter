@@ -9,6 +9,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   1. "New Game" button didn't work.
   2. Hard was improperly coded to use 50 instead of 500.
   3. Even when 100 was displayed as max boundary, the message displayed was still to guess higher
+  4. After attempting to fix the high/low bugs, getting a message to guess higher when I guess 100, but an error "Your guess must be between 1 and 100!" when I guess higher than 100. 
 
 ---
 
