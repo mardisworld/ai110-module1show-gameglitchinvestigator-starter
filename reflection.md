@@ -7,16 +7,18 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - What did the game look like the first time you ran it?
 - List at least two concrete bugs you noticed at the start  
   1. "New Game" button didn't work.
-  2. Hard was improperly coded to use 50 instead of 500.
+  2. "Hard" category was improperly coded to use 50 instead of 500.
   3. Even when 100 was displayed as max boundary, the message displayed was still to guess higher
-  4. After attempting to fix the high/low bugs, getting a message to guess higher when I guess 100, but an error "Your guess must be between 1 and 100!" when I guess higher than 100. 
+  4. After attempting to fix the high/low bugs, getting a message to guess higher when I guessed 100, but an error "Your guess must be between 1 and 100!" when I guessed higher than 100. 
 
 ---
 
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+A: Copilot with Claude Haiku
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+A: Properly fixed "New Game" button
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
 
 ---
@@ -33,14 +35,22 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 4. What did you learn about Streamlit and state?
 
 - In your own words, explain why the secret number kept changing in the original app.
+A: You need st.session_state to prevent the secret number from changing.
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+A: Reruns the entire script every time a user interacts with a widget (button click, text input, etc.). Uses st.session_state to preserve variables like secret, attempts, score, and history across reruns
 - What change did you make that finally gave the game a stable secret number?
+A: I'm not sure.
 
 ---
 
 ## 5. Looking ahead: your developer habits
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
+ A: Writing good, specific prompts
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+ A: 
+ A: Using specific prompts and reiterating on prompts until expected output is achieved.
 - What is one thing you would do differently next time you work with AI on a coding task?
+ A : Read through the codebase to get a better understanding of how it works and to identify potential bugs before just playing with the system.
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+ A: I did not realize AI generated code could be so buggy.
