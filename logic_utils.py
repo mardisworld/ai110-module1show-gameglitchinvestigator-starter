@@ -123,9 +123,9 @@ def check_guess(guess: int, secret: int) -> tuple[str, str]:
         if g == secret:
             return "Win", "🎉 Correct!"
         if g > secret:
-            return "Too High", "📈 Go LOWER!"
+            return "Too High", "📉 Go LOWER!"
         else:
-            return "Too Low", "📉 Go HIGHER!"
+            return "Too Low", "📈  Go HIGHER!"
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
